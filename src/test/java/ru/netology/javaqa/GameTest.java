@@ -12,14 +12,14 @@ class GameTest {
     @Test
     void firstPlayerWins() {
         Player monkey = new Player(45, "monkey", 86);
-        Player lion = new Player(12,"lion",21);
+        Player lion = new Player(12, "lion", 21);
         Game game = new Game();
 
         game.register(monkey);
         game.register(lion);
 
         int expected = 1;
-        int actual = game.round("monkey","lion");
+        int actual = game.round("monkey", "lion");
 
         Assertions.assertEquals(expected, actual);
 
@@ -28,14 +28,14 @@ class GameTest {
     @Test
     void secondPlayerWins() {
         Player monkey = new Player(45, "monkey", 86);
-        Player lion = new Player(12,"lion",125);
+        Player lion = new Player(12, "lion", 125);
         Game game = new Game();
 
         game.register(monkey);
         game.register(lion);
 
         int expected = 2;
-        int actual = game.round("monkey","lion");
+        int actual = game.round("monkey", "lion");
 
         Assertions.assertEquals(expected, actual);
 
@@ -44,14 +44,14 @@ class GameTest {
     @Test
     void drawPlay() {
         Player monkey = new Player(45, "monkey", 86);
-        Player lion = new Player(12,"lion",86);
+        Player lion = new Player(12, "lion", 86);
         Game game = new Game();
 
         game.register(monkey);
         game.register(lion);
 
         int expected = 0;
-        int actual = game.round("monkey","lion");
+        int actual = game.round("monkey", "lion");
 
         Assertions.assertEquals(expected, actual);
 
@@ -60,26 +60,26 @@ class GameTest {
     @Test
     void firstPlayerNotFound() {
         Player monkey = new Player(45, "monkey", 86);
-        Player lion = new Player(12,"lion",86);
+        Player lion = new Player(12, "lion", 86);
         Game game = new Game();
 
         game.register(lion);
         game.register(monkey);
 
-        Assertions.assertThrows(NotRegisteredException.class, () -> game.round("tiger","lion"));
+        Assertions.assertThrows(NotRegisteredException.class, () -> game.round("tiger", "lion"));
 
     }
 
     @Test
     void secondPlayerNotFound() {
         Player monkey = new Player(45, "monkey", 86);
-        Player lion = new Player(12,"lion",86);
+        Player lion = new Player(12, "lion", 86);
         Game game = new Game();
 
         game.register(lion);
         game.register(monkey);
 
-        Assertions.assertThrows(NotRegisteredException.class, () -> game.round("monkey","giraffe"));
+        Assertions.assertThrows(NotRegisteredException.class, () -> game.round("monkey", "giraffe"));
 
     }
 
